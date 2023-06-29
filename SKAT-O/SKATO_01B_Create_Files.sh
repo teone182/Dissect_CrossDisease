@@ -15,7 +15,7 @@ module load bcftools
 module load R_packages/4.0.0
 module load tabix
 
-SourceFolderVars='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_GenePy_+-2Kb_GeneRiskScore'
+SourceFolderVars='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_+-2Kb_GeneRiskScore'
 WorkFolder='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/060_SKATO/PrepareFiles'
 CaddWeights_File_Folder='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/060_SKATO/PrepareFiles/CaddWeights_File_Folder'
 Scripts='/proj/sens2017142/nobackup/matteob/SCRIPTS/02_PAN_DISEASE_PROJECT/41_SKATO_Scripts'
