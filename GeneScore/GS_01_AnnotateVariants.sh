@@ -5,7 +5,7 @@ while read line; do
 #Set variables
 chromosome=$line
 InputFilesFolder='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/007_AllSamples_Cleaned_OverlappingWith2021DatabaseInfo'
-WorkFolder='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_GenePy_+-2Kb_GeneRiskScore'
+WorkFolder='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_+-2Kb_GeneRiskScore'
 Annovar='/proj/sens2017142/Annovar'
 Scripts='/proj/sens2017142/nobackup/matteob/SCRIPTS/02_PAN_DISEASE_PROJECT/40_GeneRiskScore_Scripts'
 
@@ -14,8 +14,8 @@ echo "#SBATCH -A sens2017142" >> 01_PanDisease_GeneRiskScore.sc;
 echo "#SBATCH -p core -n 8" >> 01_PanDisease_GeneRiskScore.sc;  
 echo "#SBATCH -J GeneRiskScore_PanDisease_${chromosome}" >> 01_PanDisease_GeneRiskScore.sc;
 echo "#SBATCH -t 0-24:00:00" >> 01_PanDisease_GeneRiskScore.sc;
-echo "#SBATCH -o /proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_GenePy_+-2Kb_GeneRiskScore/01_PanDisease_GeneRiskScore_2Kb_${chromosome}.output" >> 01_PanDisease_GeneRiskScore.sc;
-echo "#SBATCH -e /proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_GenePy_+-2Kb_GeneRiskScore/01_PanDisease_GeneRiskScore_2Kb_${chromosome}.error" >> 01_PanDisease_GeneRiskScore.sc;
+echo "#SBATCH -o /proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_+-2Kb_GeneRiskScore/01_PanDisease_GeneRiskScore_2Kb_${chromosome}.output" >> 01_PanDisease_GeneRiskScore.sc;
+echo "#SBATCH -e /proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_+-2Kb_GeneRiskScore/01_PanDisease_GeneRiskScore_2Kb_${chromosome}.error" >> 01_PanDisease_GeneRiskScore.sc;
 echo "#SBATCH --mail-user matteo.bianchi@imbim.uu.se" >> 01_PanDisease_GeneRiskScore.sc;
 echo "#SBATCH --mail-type=ALL" >> 01_PanDisease_GeneRiskScore.sc;
 
