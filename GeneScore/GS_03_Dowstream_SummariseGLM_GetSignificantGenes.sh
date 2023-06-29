@@ -3,16 +3,16 @@
 #SBATCH -p core -n 1
 #SBATCH -J GLM
 #SBATCH -t 2-00:00:00
-#SBATCH -o /proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_GenePy_+-2Kb_GeneRiskScore/03_PanDisease_GeneRiskScore_2Kb_Downstream_GLMSummarise_ALL_SUBPHENOTYPES_WithAllAAb_BETTER_221126.output
-#SBATCH -e /proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_GenePy_+-2Kb_GeneRiskScore/03_PanDisease_GeneRiskScore_2Kb_Downstream_GLMSummarise_ALL_SUBPHENOTYPES_WithAllAAb_BETTER_221126.error
+#SBATCH -o /proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_+-2Kb_GeneRiskScore/03_PanDisease_GeneRiskScore_2Kb_Downstream_GLMSummarise_ALL_SUBPHENOTYPES_WithAllAAb_BETTER_221126.output
+#SBATCH -e /proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_+-2Kb_GeneRiskScore/03_PanDisease_GeneRiskScore_2Kb_Downstream_GLMSummarise_ALL_SUBPHENOTYPES_WithAllAAb_BETTER_221126.error
 #SBATCH --mail-user matteo.bianchi@imbim.uu.se
 #SBATCH --mail-type=ALL
 
 module load bioinfo-tools
 module load R_packages/4.0.0
 
-WorkFolder='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_GenePy_+-2Kb_GeneRiskScore/Results/GLM' &&
-SourceFolder='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_GenePy_+-2Kb_GeneRiskScore/Results/GLM' &&
+WorkFolder='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_+-2Kb_GeneRiskScore/Results/GLM' &&
+SourceFolder='/proj/sens2017142/nobackup/matteob/02_PAN_DISEASE_PROJECT/040_Cleaned_OverlappingWith2021DatabaseInfo_+-2Kb_GeneRiskScore/Results/GLM' &&
 Scripts='/proj/sens2017142/nobackup/matteob/SCRIPTS/02_PAN_DISEASE_PROJECT/40_GeneRiskScore_Scripts' &&
 
 cd $WorkFolder
