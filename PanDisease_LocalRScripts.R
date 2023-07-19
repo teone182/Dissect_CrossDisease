@@ -365,7 +365,7 @@ dev.off()
 #####DUSP1####
 setwd("~/Desktop/Pan_Disease/PAPER_VERSION_4/DUSP1_v4/")
 DUSP1 <- read.csv("DUSP1_4Plot", sep="\t", head=T)
-DUSP1 <- read.csv("DUSP1_4Plot_WithVarIDs", sep="\t", head=T)
+DUSP1 <- read.csv("DUSP1_4Plot_WithVarIDs_PlusSNV", sep="\t", head=T)
 
 head(DUSP1)
 
@@ -389,30 +389,58 @@ DUSP1$Effect[DUSP1$SkinInvolvementPos == 0 & DUSP1$SkinInvolvementNeg == 0] <- "
 #dev.off()
 
 
-pdf("DUSP1_BarPot_WithVarIDs.pdf", width = 15, height = 7)
+#pdf("DUSP1_BarPot_WithVarIDs_2.pdf", width = 15, height = 7)
+#ggplot(DUSP1,aes(factor(Coord),DeltaPosMinusNeg, fill=Effect, color=Effect)) +
+#  theme_bw() +
+#  geom_bar(stat="identity") +
+#  scale_fill_manual(values=c("gray41", "royalblue2", "darkred")) +
+#  scale_color_manual(values=c("gray41", "royalblue2", "darkred")) +
+#  theme(text = element_text(size=10),
+#        axis.text.x = element_text(angle=0, hjust=0.5, vjust=0.5, size=16),
+#        axis.text.y = element_text(size=16), axis.title.y = element_text(size=18),
+#        legend.title = element_text(size=16),
+#        legend.text = element_text(size=16)) +
+#  xlab("") +
+#  ylab("Delta allele frequency")
+#dev.off()
+
+#######With names as SNVx#####
+
+DUSP1$Coord <- factor(DUSP1$Coord, levels=c("SNV1","SNV2","SNV3","SNV4","SNV5","SNV6","SNV7","SNV8","SNV9","SNV10",
+                                            "SNV11","SNV12","SNV13","SNV14","SNV15","SNV16","SNV17","SNV18","SNV19","SNV20",
+                                            "SNV21","SNV22","SNV23","SNV24","SNV25","SNV26","SNV27","SNV28","SNV29","SNV30",
+                                            "SNV31","SNV32"))
+
+
+pdf("DUSP1_BarPot_WithVarIDs_3.pdf", width = 15, height = 7)
 ggplot(DUSP1,aes(factor(Coord),DeltaPosMinusNeg, fill=Effect, color=Effect)) +
+  theme_bw() +
   geom_bar(stat="identity") +
   scale_fill_manual(values=c("gray41", "royalblue2", "darkred")) +
   scale_color_manual(values=c("gray41", "royalblue2", "darkred")) +
   theme(text = element_text(size=10),
-        axis.text.x = element_text(angle=0, hjust=0.5, vjust=0.5, size=13),
-        axis.text.y = element_text(size=13), axis.title.y = element_text(size=13),
-        legend.title = element_text(size=13),
-        legend.text = element_text(size=13)) +
+        axis.text.x = element_text(angle=90, hjust=0.5, vjust=0.5, size=16),
+        axis.text.y = element_text(size=16), axis.title.y = element_text(size=18),
+        legend.title = element_text(size=16),
+        legend.text = element_text(size=16)) +
   xlab("") +
   ylab("Delta allele frequency")
 dev.off()
 
 
 
-pdf("DUSP1_phyloP.pdf", width = 15, height = 3)
+
+
+
+pdf("DUSP1_phyloP_2.pdf", width = 15, height = 3)
 ggplot(DUSP1, aes(x=as.factor(Coord), y=phyloPam, group=1)) +
+  theme_bw() +
   geom_line(linetype = "solid")+
   geom_point() +
   theme(axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
-        axis.text.y = element_text(size=11), axis.title.y = element_text(size=15)) +
+        axis.text.y = element_text(size=13), axis.title.y = element_text(size=19)) +
   scale_y_continuous(breaks=seq(-9,9,1)) +
   geom_hline(yintercept=2.27, linetype="solid", 
              color = "forestgreen", size=0.5) +
@@ -463,10 +491,10 @@ mat[upper.tri(mat)] <- data$Rsquared
 #rownames(mat) <- c("6","11","12","15","16",
 #                   "22","23","25","27","28")
 
-colnames(mat) <- c("6\n(rs3805476)","11\n(rs2431663)","12\n(rs34471628)","15\n(rs7702178)","16\n(rs35084382)",
-                   "22\n(rs881150)","23\n(rs322382)","25\n(rs322381)","27\n(rs322380)","28\n(rs3763067)")
-rownames(mat) <- c("6\n(rs3805476)","11\n(rs2431663)","12\n(rs34471628)","15\n(rs7702178)","16\n(rs35084382)",
-                   "22\n(rs881150)","23\n(rs322382)","25\n(rs322381)","27\n(rs322380)","28\n(rs3763067)")
+colnames(mat) <- c("SNV6\n(rs3805476)","SNV11\n(rs2431663)","SNV12\n(rs34471628)","SNV15\n(rs7702178)","SNV16\n(rs35084382)",
+                   "SNV22\n(rs881150)","SNV23\n(rs322382)","SNV25\n(rs322381)","SNV27\n(rs322380)","SNV28\n(rs3763067)")
+rownames(mat) <- c("SNV6\n(rs3805476)","SNV11\n(rs2431663)","SNV12\n(rs34471628)","SNV15\n(rs7702178)","SNV16\n(rs35084382)",
+                   "SNV22\n(rs881150)","SNV23\n(rs322382)","SNV25\n(rs322381)","SNV27\n(rs322380)","SNV28\n(rs3763067)")
 
 #colnames(mat) <- c("6\n(chr5:172195092:G:A)","11\n(chr5:172196711:G:T)","12\n(chr5:172196752:A:G)","15\n(chr5:172196997:T:C)","16\n(chr5:172197039:T:C)",
 #                   "22\n(chr5:172198905:T:A)","23\n(chr5:172198952:T:C)","25\n(chr5:172199489:G:A)","27\n(chr5:172199592:T:C)","28\n(chr5:172199623:G:A)")
@@ -479,7 +507,7 @@ melt(as.data.frame.table(mat)) %>%
   geom_text(aes(label = value), size=2) +
   scale_fill_gradient2(high ="darkred", limit = c(0,1), name="R2", na.value = "white") +
   theme_classic() +
-  theme(axis.text.x = element_text(size=8, angle=30, hjust=0.5)) +    ###element_text(size=8, angle=30, hjust=0.5##
+  theme(axis.text.x = element_text(size=8, angle=25, hjust=0.5)) +    ###element_text(size=8, angle=30, hjust=0.5##
   xlab("Variant ID") + ylab("Variant ID")
 dev.off()
 
@@ -524,6 +552,41 @@ ggplot(data_OnlyNonStimulated, aes(x=reorder(HAPLOTYPE, ORDER), y = MEAN, fill =
   ylab("Reporter fold-change expression") +
   xlab("")
 dev.off()
+
+#######REVERSE ORIENTATION - ALL REGIONS########
+setwd("~/Desktop/Pan_Disease/PAPER_VERSION_4/Check_DUSP1_Variants_Reporter_Assay_FromSergey/Files_and_Plots/")
+data <- read.csv("Reporter_Dataframe_4BarPlot_ALL", sep="\t", head=T)
+head(data)
+
+data_OnlyNonStimulated <- subset(data, data$STIMULATION_GROUP == "NON_STIM")
+data_OnlyNonStimulated$Allele <- factor(data_OnlyNonStimulated$Allele, levels=c("Non-Effect", "Effect"))
+data_OnlyNonStimulated$REGION_GROUP <- factor(data_OnlyNonStimulated$REGION_GROUP, levels=c("Region#1", "Region#2","Region#3","Region#4","Region#5","Region#6",
+                                                                                            "Region#7", "Region#8","Region#9","Region#10","Region#11","Region#12",
+                                                                                            "Region#13", "Region#14","Region#15","Region#16","Region#17","Region#18"))
+
+
+
+pdf("FigureBarPlot_ALL_NonStimulated_ReverseOrientation.pdf", width = 9, height = 7)
+ggplot(data_OnlyNonStimulated, aes(x=reorder(HAPLOTYPE, ORDER), y = MEAN, fill = Allele)) + 
+  geom_col() +
+  geom_errorbar(aes(ymin=MEAN-SEM, ymax=MEAN+SEM), width=.2,
+                position=position_dodge(.9)) +
+  #  scale_fill_manual(values=c("grey69","grey30")) +
+  scale_fill_manual(values=c("skyblue","slateblue")) +
+  facet_grid(~ REGION_GROUP, 
+             scales = "free_x",
+             space = "free_x") +
+  theme_classic() +
+  scale_y_reverse() +
+  theme(panel.spacing = unit(0.20, units = "cm"),
+        strip.placement = "outside", # moves the states down
+        strip.background = element_rect(fill = "white"),
+        strip.text.x = element_text(angle=75, hjust=0.5, size=8),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  ylab("Reporter fold-change expression") +
+  xlab("")
+dev.off()
+
 
 
 ###########UTR############
@@ -662,10 +725,3 @@ ggplot(data, aes(Cell, Value, fill = Group)) + geom_bar(stat = "identity", posit
         legend.title=element_text(size=16), legend.text=element_text(size=16)) +
   labs(fill="")
 dev.off()
-
-
-
-
-
-
-
