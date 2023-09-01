@@ -240,6 +240,31 @@ ggplot(data=data, aes(x=Group, y=CorrectNumber, fill=Significance)) +
   scale_fill_manual(values = c("darkred", "#fdae61","#153E7E"))  
 dev.off()
 
+#####only FDR and non significant######
+setwd("~/Desktop/Pan_Disease/PAPER_VERSION_4/SUMMARY_FILES_PVals_Aggregate/")
+data <- read.csv("File_SignificantAndNonSignificantGeneNumber_4BarPlot_v4_OnlyFDRandNonSignificant", head=T, sep="\t")
+head(data)
+
+data$Significance <- factor(data$Significance, levels=c("FDR","Non significant"))
+data$Group <- factor(data$Group, levels=c("GS","SKAT-O"))
+
+
+####Absolute count - only FDR and non significant#####
+pdf("SignificanceBreakdown_GeneNumber_v4_OnlyFDRandNonSignificant_2.pdf")
+ggplot(data=data, aes(x=Group, y=TotNr, fill=Significance)) +
+  geom_bar(stat="identity") +
+  ylab("# genes") +
+  xlab("") +
+  theme(axis.text.x = element_text(size=20),
+        axis.text.y = element_text(size=15), axis.title.y = element_text(size=20),
+        legend.title = element_text(size=15),
+        legend.text = element_text(size=15)) +
+#  scale_fill_manual(values = c("darkred","#153E7E"))
+  scale_fill_manual(values = c("firebrick3","dodgerblue3"))  
+
+dev.off()
+
+
 ####Proportion#####
 #pdf("SignificanceBreakdown_GeneFraction.pdf")
 #ggplot(data=data, aes(x=Group, y=Proportion, fill=Significance)) +
